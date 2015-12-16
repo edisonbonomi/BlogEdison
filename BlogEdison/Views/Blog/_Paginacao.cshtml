@@ -1,0 +1,22 @@
+﻿@*Tipamos fortemente a View*@
+@model BlogEdison.Models.Blog.ListarPostsViewModel
+
+@if (Model.TotalPaginas > 1)
+{
+    var proximaPagina = Model.PaginaAtual + 1;
+    var paginaAnterior = Model.PaginaAtual - 1;
+
+    <div class="pagination">
+        @if(Model.PaginaAtual > 1)
+        {
+            @Html.ActionLink(" << Anterior ", "Index", "Blog", new { pagina = paginaAnterior, Tag = Model.Tag, Pesquisa = Model.Pesquisa }, new { rel = "prev"} )
+        }
+        @if (Model.PaginaAtual < Model.TotalPaginas)
+        {
+            @Html.ActionLink(" Próxima >> ", "Index", "Blog", new { pagina = proximaPagina, Tag = Model.Tag, Pesquisa = Model.Pesquisa }, new { rel = "next" })
+        }
+
+
+    </div>
+
+}

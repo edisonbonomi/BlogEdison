@@ -1,0 +1,32 @@
+﻿@*Tipamos fortemente a View*@
+@model BlogEdison.Models.Usuario.ListarUsuarioViewModel
+@{
+    ViewBag.Title = "Usuários";
+}
+
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/Views/Usuario/Index.js")"></script>
+}
+
+<h1>Usuários</h1>
+<div>
+    @Html.ActionLink("Novo Usuário", "CadastrarUsuario", "Usuario")
+    <br>@Html.Partial("_Paginacao", Model)
+</div>
+
+@foreach (var item in Model.Usuarios)
+{
+    <hr>
+    <h2>@item.Login</h2>
+    <div class="icone-editar div-imagem"></div>
+    <div>
+        @Html.ActionLink("Editar", "EditarUsuario", "Usuario", new { id = item.Id }, null)
+        <div class="icone-excluir div-imagem"></div>
+        @Html.ActionLink("Excluir", "ExcluirUsuario", "Usuario", new { id = item.Id }, new { @class = "excluir-usuario" })
+    </div>
+    <div>
+        <h3>@item.Nome</h3>
+    </div>
+}

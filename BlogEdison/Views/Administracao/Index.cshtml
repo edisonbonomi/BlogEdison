@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Administração";
+}
+
+<h2>Administração</h2>
+<table>
+    <tr><td><b>Manutenção de Posts</b></td></tr> 
+    <tr><td>@Html.ActionLink(">> Listar", "Index", "Blog") </td></tr>
+    <tr><td>@Html.ActionLink(">> Cadastrar", "CadastrarPost", "Administracao") </td></tr>
+    <tr></tr>
+    <tr><td><b>Manutenção de Usuários</b></td></tr> 
+    <tr><td>@Html.ActionLink(">> Listar", "Index", "Usuario")</td></tr>
+    <tr><td>@Html.ActionLink(">> Cadastrar", "CadastrarUsuario", "Usuario") </td></tr>
+</table>

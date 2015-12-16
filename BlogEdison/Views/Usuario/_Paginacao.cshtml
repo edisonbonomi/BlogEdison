@@ -1,0 +1,23 @@
+﻿@*Tipamos fortemente a View*@
+@model BlogEdison.Models.Usuario.ListarUsuarioViewModel
+
+@if (Model.TotalPaginas > 1)
+{
+    var proximaPagina = Model.PaginaAtual + 1;
+    var paginaAnterior = Model.PaginaAtual - 1;
+
+    <div class="pagination">
+        @if (Model.PaginaAtual > 1)
+        {
+            @Html.ActionLink(" << Anterior ", "Index", "Usuario", new { pagina = paginaAnterior }, new { rel = "prev" })
+        }
+        @if (Model.PaginaAtual < Model.TotalPaginas)
+        {
+            @Html.ActionLink(" Próxima >> ", "Index", "Usuario", new { pagina = proximaPagina }, new { rel = "next" })
+        }
+
+
+    </div>
+
+}
+

@@ -1,0 +1,60 @@
+﻿@*aula11122015*@
+@*Tipamos fortemente a View*@
+@model BlogEdison.Models.Blog.DetalhesPostViewModel
+@{
+    ViewBag.Title = "Post";
+}
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/Views/Blog/Index.js")"></script>
+}
+
+@using (@Html.BeginForm())
+{
+    <div>
+        <h2>@Model.Titulo</h2>
+    </div>
+
+    <div>
+        <div class="icone-calendario div-imagem"></div>
+        @Model.DataPublicacao.ToString("dd/MM/yyyy HH:mm")
+        <div class="icone-autor div-imagem"></div>
+        @Model.Autor
+        <div class="icone-comentario div-imagem"></div>
+        @Html.ActionLink("0", "EditarPost", "Administracao", new { id = Model.Id }, null)
+        @if (Request.IsAuthenticated)
+        {
+            <div class="icone-excluir div-imagem"></div>
+            @Html.ActionLink("Excluir", "ExcluirPost", "Administracao", new { id = Model.Id }, new { @class = "excluir-post" })
+        }
+    </div>
+    <br>
+    <div>
+        @Model.Descricao
+    </div>
+
+    <h2>Tags</h2>
+
+    <div class="form-group">
+        <ul id="resultado">
+
+            @*Se possuir Tags, preenche na página*@
+            @if (Model.Tags != null)
+            {
+                foreach (var item in Model.Tags)
+                {
+                    <li>@Html.ActionLink(item, "Index", "Blog", new { tag = item }, null)</li>
+                }
+            }
+        </ul>
+    </div>
+}
+
+
+
+
+
+
+
+
