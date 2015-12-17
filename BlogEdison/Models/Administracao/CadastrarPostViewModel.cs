@@ -44,5 +44,8 @@ namespace BlogEdison.Models.Administracao
 
         public List<string> Tags { get; set; }
 
+        //public List<string> Comentarios { get; set; }
+
+
     }
 }

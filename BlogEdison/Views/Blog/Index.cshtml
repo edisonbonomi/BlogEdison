@@ -35,7 +35,14 @@
                 <div class="icone-autor div-imagem"></div>
                 @item.Autor
                 <div class="icone-comentario div-imagem"></div>
-                @Html.ActionLink("0", "EditarPost", "Administracao", new { id = item.Id }, null)
+                <a href="@Url.Action("Post", "Blog", new
+                   {id = item.Id,
+                    ano = item.DataPublicacao.Year,
+                    mes = item.DataPublicacao.Month,
+                    dia = item.DataPublicacao.Day,
+                    titulo = item.Titulo
+                   })#comentarios">@item.QtdeComentarios.ToString()</a>
+
                 @if (Request.IsAuthenticated)
                 {
                     <div class="icone-editar div-imagem"></div>

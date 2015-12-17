@@ -46,6 +46,10 @@ namespace BlogEdison.DB.Mapeamentos
                 .HasColumnName("IDPOST")
                 .IsRequired();
 
+            Property(x => x.DataHora)
+                .HasColumnName("DATAHORA")
+                .IsRequired();
+
             HasRequired(x => x.Post)
                 .WithMany()
                 .HasForeignKey(x => x.IdPost);
