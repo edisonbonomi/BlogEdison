@@ -173,7 +173,7 @@ namespace BlogEdison.Controllers
                     conexao.Comentarios.Add(comentario);
                     conexao.SaveChanges();
 
-                    /*
+                    /**********************************************************
                     return RedirectToAction("Post", new
                     {
                         ano = post.DataPublicacao.Year,
@@ -182,7 +182,11 @@ namespace BlogEdison.Controllers
                         titulo = post.Titulo,
                         id = post.Id
                     });
-                    */
+                    ***********************************************************/
+                    /**********************************************************
+                    Modificado para incluir a Hashtag comentario no final da
+                    Url e posicionar o foco nos comentários no final da página
+                    ***********************************************************/
                     return Redirect(Url.Action("Post", new
                     {
                         ano = viewModel.DataPublicacao.Year,
