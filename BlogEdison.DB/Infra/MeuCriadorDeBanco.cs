@@ -13,7 +13,7 @@ namespace BlogEdison.DB.Infra
         protected override void Seed(ConexaoBanco context)
         {
             context.Usuarios.Add(new Usuario { Login = "ADM", Nome = "Administrador", Senha = "admin" });
-
+            /*teste*/
             base.Seed(context);
         }
     }
