@@ -20,12 +20,10 @@
 {
     <hr>
     <h2>@item.Login</h2>
-    <div class="icone-editar div-imagem"></div>
     <div>
+        <div class="icone-editar div-imagem"></div>
         @Html.ActionLink("Editar", "EditarUsuario", "Usuario", new { id = item.Id }, null)
-    </div>
-    <div class="icone-excluir div-imagem"></div>
-    <div>
+        <div class="icone-excluir div-imagem"></div>
         @Html.ActionLink("Excluir", "ExcluirUsuario", "Usuario", new { id = item.Id }, new { @class = "excluir-usuario" })
     </div>
     <div>
